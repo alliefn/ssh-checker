@@ -31,3 +31,6 @@ PS:
 * Make sure you have the latest version of ansible installed.
 * Make sure you know the password of the server and client.
 * Make sure you have inotify-tools installed.
+
+Some assumptions I make:
+* All clients have the same password.
