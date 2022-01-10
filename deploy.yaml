@@ -7,8 +7,23 @@
        dest: /home/alif/repos/ssh-checker
        clone: yes
        update: yes
-   - name: Change permission of .sh files
+   - name: Change permission of alphaclient.sh 
      file:
-       path: /home/alif/repos/ssh-checker/alphaclient.sh, /home/alif/repos/ssh-checker/alphaserver.sh
+       path: /home/alif/repos/ssh-checker/alphaclient.sh
        state: touch
        mode: 0755
+   - name: Change permission of alphaserver.sh 
+     file:
+       path: /home/alif/repos/ssh-checker/alphaserver.sh
+       state: touch
+       mode: 0755
+ - hosts: 192.168.21.68
+   sudo: yes
+   tasks:
+   - name: Start the server
+     script: /home/alif/repos/ssh-checker/alphaserver.sh
+ - hosts: 192.168.21.56, 192.168.21.57
+   sudo: yes
+   tasks:
+   - name: Start the client
+     script: /home/alif/repos/ssh-checker/alphaclient.sh
