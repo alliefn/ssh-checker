@@ -4,6 +4,11 @@
    - name: Clone the repository
      git:
        repo: https://github.com/alliefn/ssh-checker.git
-       dest: /home/alif/repos/
+       dest: /home/alif/repos/ssh-checker
        clone: yes
        update: yes
+   - name: Change permission of .sh files
+     file:
+       path: /home/alif/repos/ssh-checker/alphaclient.sh, /home/alif/repos/ssh-checker/alphaserver.sh
+       state: touch
+       mode: 0755
