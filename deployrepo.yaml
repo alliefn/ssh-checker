@@ -6,6 +6,7 @@
        repo: https://github.com/alliefn/ssh-checker.git
        dest: /home/alif/repos/ssh-checker
        clone: yes
+       force: yes
        update: yes
    - name: Change permission of alphaclient.sh 
      file:
