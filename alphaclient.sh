@@ -1,6 +1,7 @@
 # This program will count SSH successful and failed login attempts from /var/log/auth.log
 # and send the results to the Alpha server, realtime.
 
+#!/bin/bash
 # Check the program is running as root
 if [ "$(id -u)" != "0" ]; then
    echo "This script must be run as root" 1>&2
