@@ -11,9 +11,11 @@
      file:
        path: /home/alif/repos/ssh-checker/alphaclient.sh
        state: touch
+       force: yes
        mode: 0755
    - name: Change permission of alphaserver.sh 
      file:
        path: /home/alif/repos/ssh-checker/alphaserver.sh
        state: touch
+       force: yes
        mode: 0755
