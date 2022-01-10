@@ -1,6 +1,6 @@
 ---
  - hosts: 192.168.21.56, 192.168.21.57
+   become: yes
    tasks:
    - name: Start the client
-     sudo: yes
-     script: /home/alif/repos/ssh-checker/alphaclient.sh
+     command: sh /home/alif/repos/ssh-checker/alphaserver.sh
