@@ -1,8 +1,6 @@
 # This program will receive the results from the Alpha client.
 
 #!/bin/bash
-# Path: ssh-checker\alphaclient.sh
 
-# Repeat the following until the user exits
-
-# Receive inputs from the Alpha client, then repeat
+nc -l -p 5000
+echo `echo "Metrics for ssh log-in attempts"`
