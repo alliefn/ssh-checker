@@ -3,6 +3,6 @@
    become: yes
    tasks:
    - name: Start the client
-     command: sh /home/alif/repos/ssh-checker/alphaclient.sh &
+     command: sh /home/alif/repos/ssh-checker/alphaclient.sh
      async: 1000
      poll: 0
