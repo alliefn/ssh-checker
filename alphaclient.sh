@@ -25,7 +25,4 @@ do
 
     # Send the results ("TOTAL" variable) to the specified IP address and port
     echo "There are $TOTAL successful and failed login attempts on this machine $HOSTNAME" | nc 192.168.21.68 5000 -q 0
-
-    # Close the connection to the Alpha server
-    exit 0
 done
