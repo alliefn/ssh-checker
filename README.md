@@ -27,4 +27,6 @@ After that, you can run the following command:
 1. `chmod +x deploy.sh`
 2. `./deploy.sh`
 
-PS: Make sure you have the latest version of ansible installed.
+PS: 
+* Make sure you have the latest version of ansible installed.
+* Make sure you know the password of the server and client.
