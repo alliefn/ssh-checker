@@ -12,7 +12,7 @@ fi
 while true
 do
     # Wait until /var/log/auth.log is updated with login attempts
-    while [ ! -f /var/log/auth.log.1 ]
+    while [ ! -f /var/log/auth.log ]
     do
         sleep 1
     done
@@ -24,7 +24,7 @@ do
     TOTAL=$(($SUCCESS + $FAILED))
 
     # Send the results ("TOTAL" variable) to the specified IP address and port
-    echo "There are $TOTAL successful and failed login attempts on this machine $HOSTNAME." | nc 192.168.21.68 5000 | exit 0
+    echo "There are $TOTAL successful and failed login attempts on this machine $HOSTNAME" | nc 192.168.21.68 5000 | exit 0
 
     # Close the connection to the Alpha server
     exit 0
