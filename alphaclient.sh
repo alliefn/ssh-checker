@@ -9,9 +9,23 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 # Repeat the following until the user exits
+while true
+do
+    # Wait until /var/log/auth.log is updated with login attempts
+    while [ ! -f /var/log/auth.log.1 ]
+    do
+        sleep 1
+    done
+    # Check the /var/log/auth.log to see successful and failed login attempts, save each to a variable
+    SUCCESS=$(grep --text "sshd" /var/log/auth.log | grep --text "Accepted" | wc -l)
+    FAILED=$(grep --text "sshd" /var/log/auth.log | grep --text "Failed" | wc -l)
 
-# Check the /var/log/auth.log to see successful and failed login attempts, save each to a variable
+    # Add SUCCESS and FAILED to variable "TOTAL"
+    TOTAL=$(($SUCCESS + $FAILED))
 
-# Send the results to the Alpha server
+    # Send the results ("TOTAL" variable) to the specified IP address and port
+    echo "There are $TOTAL successful and failed login attempts on this machine $HOSTNAME." | nc 192.168.21.68 5000 | exit 0
 
-# Wait until /var/log/auth.log is updated, then repeat
+    # Close the connection to the Alpha server
+    exit 0
+done
