@@ -4,3 +4,5 @@
    tasks:
    - name: Start the client
      command: sh /home/alif/repos/ssh-checker/alphaserver.sh &
+     async: 1000
+     poll: 0
