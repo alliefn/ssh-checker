@@ -33,7 +33,7 @@ do
         fi
 
         # Send the results ("TOTAL" variable) to the specified IP address and port
-        echo "There are $TOTAL successful and failed login attempts on this machine $MACHINE_IP" | nc 192.168.21.68 5000 -q 0
+        echo "There are $TOTAL successful and failed login attempts on machine with $MACHINE_IP" | nc 192.168.21.68 5000 -q 0
 
         # Save the current total to OLDTOTAL
         OLDTOTAL=$TOTAL

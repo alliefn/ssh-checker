@@ -2,5 +2,5 @@
 
 #!/bin/bash
 
-nc -l -p 5000
-echo `echo "Metrics for ssh log-in attempts"`
+echo "Metrics for ssh log-in attempts"
+nc -l -p 5000 -k
