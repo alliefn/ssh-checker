@@ -8,6 +8,11 @@ if [ "$(id -u)" != "0" ]; then
    exit 1
 fi
 
+# Initialize the variables
+SUCCESS=$(grep --text "sshd" /var/log/auth.log | grep --text "Accepted" | wc -l)
+FAILED=$(grep --text "sshd" /var/log/auth.log | grep --text "Failed" | wc -l)
+OLDTOTAL=$(($SUCCESS + $FAILED))
+
 # Repeat the following until the user exits
 while true
 do
@@ -20,6 +25,11 @@ do
 
         # Add SUCCESS and FAILED to variable "TOTAL"
         TOTAL=$(($SUCCESS + $FAILED))
+
+        # If OLDTOTAL = TOTAL, then do nothing, this is to prevent the program from sending the same data to the Alpha server
+        if [ $OLDTOTAL = $TOTAL ]; then
+            continue
+        fi
 
         # Send the results ("TOTAL" variable) to the specified IP address and port
         echo "There are $TOTAL successful and failed login attempts on this machine $HOSTNAME" | nc 192.168.21.68 5000 -q 0
