@@ -9,7 +9,7 @@
 ## What is this?
 This is a simple tool to see total SSH login attempts.
 
-The idea is to deploy this to client and the client will send the data (Total SSH login attempts) to the server.
+The idea is to deploy this to client (and server, too) and the client will send the data (Total SSH login attempts) to the server.
 
 The server will save the data to a file in /tmp/ssh_logins.txt
 
