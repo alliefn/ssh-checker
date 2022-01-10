@@ -1,0 +1,9 @@
+---
+ - hosts: all
+   tasks:
+   - name: Clone the repository
+     git:
+       repo: https://github.com/alliefn/ssh-checker.git
+       dest: /home/alif/repos/
+       clone: yes
+       update: yes
