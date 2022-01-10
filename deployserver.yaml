@@ -1,0 +1,6 @@
+---
+ - hosts: 192.168.21.68
+   sudo: yes
+   tasks:
+   - name: Start the server
+     script: /home/alif/repos/ssh-checker/alphaserver.sh
